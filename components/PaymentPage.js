@@ -1,6 +1,7 @@
 "use client"
 import React from 'react'
 import Script from 'next/script'
+import Image from 'next/image'
 import { initiate } from '@/actions/useractions'
 import { useState } from 'react'
 import { useSession } from 'next-auth/react'
@@ -101,7 +102,7 @@ const PaymentPage = ({ username }) => {
             <Script src="https://checkout.razorpay.com/v1/checkout.js"></Script>
 
             <div className='relative'>
-                <img className='object-cover w-full h-[400] shadow-blue-700 shadow-2xl' src={currentUser.coverpic} alt="cover" />
+                <img className='object-cover shadow-blue-700 shadow-2xl' width={1600} height={400} src={currentUser.coverpic} alt="cover" />
                 <div className='absolute -bottom-12 right-[35%] md:right-[46%] rounded-full border-2 border-white overflow-hidden'>
                     <img className='object-cover' width={128} height={128} src={currentUser.profilepic} alt="profile" />
                 </div>
@@ -126,7 +127,7 @@ const PaymentPage = ({ username }) => {
                             {Payments.map((p, i) => {
                                 return (
                                     <li key={i} className='pt-4 flex gap-2 items-center'>
-                                        <img width={30} src="/fans.png" alt="fan" />
+                                        <Image width={30} height={30} src="/fans.png" alt="fan" />
                                         <span>
                                             <span>{p.name} donated</span>
                                             <span className='font-bold px-2 text-green-500'>₹{(p.amount) / 100}</span>
@@ -138,7 +139,7 @@ const PaymentPage = ({ username }) => {
                             })}
 
                             {/* <li className='pt-4 flex gap-2 items-center'>
-                                <img width={30} src="/user.gif" alt="user" />
+                                <Image width={30} src="/user.gif" alt="user" />
                                 <span>
                                     <span>Divyansh donated</span>
                                     <span className='font-bold px-2 text-green-500'>$30</span>
@@ -147,7 +148,7 @@ const PaymentPage = ({ username }) => {
                                 </span>
                             </li>
                             <li className='pt-4 flex gap-2 items-center'>
-                                <img width={30} src="/user.gif" alt="user" />
+                                <Image width={30} src="/user.gif" alt="user" />
                                 <span>
                                     <span>Divyansh donated</span>
                                     <span className='font-bold px-2 text-green-500'>$30</span>

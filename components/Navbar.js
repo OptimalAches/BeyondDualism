@@ -2,6 +2,7 @@
 import React, { useState } from 'react'
 import { useSession, signIn, signOut } from "next-auth/react"
 import Link from 'next/link'
+import Image from 'next/image'
 
 const Navbar = () => {
     const { data: session } = useSession()
@@ -17,7 +18,7 @@ const Navbar = () => {
 
             <div className='logo font-bold text-lg flex justify-center items-center gap-2'>
 
-                <Link href={'/'}><img src="/favicon.png" alt="logo" width={35} /> </Link>
+                <Link href={'/'}><Image src="/favicon.png" alt="logo" width={35} height={35} /> </Link>
                 <Link href={'/'}><div><span>Beyond</span><span className="text-[#63e]">Dualism</span><span>!</span></div> </Link>
 
             </div>
