@@ -112,7 +112,7 @@ const PaymentPage = ({ username }) => {
                     <span>@{username}</span>
                 </div>
                 <div className='text-slate-400'>
-                    <span>Let's help {username} in his mission!</span>
+                    <span>Let&apos;s help {username} in his mission!</span>
                 </div>
                 <div className='text-slate-400'>
                     <span>{Payments.length} Payments • ₹{Payments.reduce((a,b) => a + (b.amount)/100, 0)} raised</span>

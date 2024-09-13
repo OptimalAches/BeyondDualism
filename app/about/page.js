@@ -7,7 +7,7 @@ const about = () => {
             <h1 className="text-4xl font-bold mb-6 text-center text-white">About <span>Beyond</span><span className="text-[#63e]">Dualism</span><span>!</span></h1>
             <p className="leading-relaxed text-lg mb-6">
                 Welcome to <span className="font-semibold"><span>Beyond</span><span className="text-[#63e]">Dualism</span><span>!</span></span>, a platform designed for those who recognize the need to
-                shift the world's underlying philosophy. Our mission is to empower creators, activists, and thinkers who are dedicated to
+                shift the world&apos;s underlying philosophy. Our mission is to empower creators, activists, and thinkers who are dedicated to
                 advancing the principles of <span className="font-semibold">Non-Dualism (Advaita Vedanta)</span> to address some of the most pressing global issues,
                 including climate change and income inequality.
             </p>

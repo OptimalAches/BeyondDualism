@@ -9,7 +9,7 @@ export default function Home() {
           <img width={50} src="/favicon.png" alt="logo" />
         </div>
         <span className="text-center font-bold text-sm md:text-base">A crowdfunding platform for explorers of AdvaitVedanta or Non-dualism</span>
-        <div className="text-center text-sm md:text-base font-semibold mt-8">Get funded by individuals who understands the importance of changing the world's underlying Philosophy</div>
+        <div className="text-center text-sm md:text-base font-semibold mt-8">Get funded by individuals who understands the importance of changing the world&apos;s underlying Philosophy</div>
         <div>
           <Link href={"/login"}>
             <button type="button" className="text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Start Here!</button>
