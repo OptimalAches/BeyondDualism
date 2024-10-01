@@ -102,9 +102,9 @@ const PaymentPage = ({ username }) => {
             <Script src="https://checkout.razorpay.com/v1/checkout.js"></Script>
 
             <div className='relative'>
-                <img className='object-cover shadow-blue-700 shadow-2xl' width={1600} height={400} src={currentUser.coverpic} alt="cover" />
+                <Image className='object-cover shadow-blue-700 shadow-2xl' width={1600} height={400} src={currentUser.coverpic} alt="cover" />
                 <div className='absolute -bottom-12 right-[35%] md:right-[46%] rounded-full border-2 border-white overflow-hidden'>
-                    <img className='object-cover' width={128} height={128} src={currentUser.profilepic} alt="profile" />
+                    <Image className='object-cover' width={128} height={128} src={currentUser.profilepic} alt="profile" />
                 </div>
             </div>
             <div className='info flex flex-col items-center justify-center gap-2 py-20'>
