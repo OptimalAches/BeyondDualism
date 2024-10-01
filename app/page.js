@@ -52,7 +52,7 @@ export default function Home() {
         <h2 className="text-2xl font-bold">Learn more about us</h2>
 
         <div className="w-[90%] h-[40vh] md:w-[50%] md:h-[40vh] lg:w-[50%] lg:h-[40vh] xl:w-[50%] xl:h-[40vh]">
-          <iframe className="w-full h-full" src="https://www.youtube.com/embed/UsmGmVgJaVw?si=akGnOe7-hBPhL6yD" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          <iframe className="w-full h-full" src="https://www.youtube.com/embed/UsmGmVgJaVw?si=akGnOe7-hBPhL6yD" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
         </div>
 
       </div>

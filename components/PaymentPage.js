@@ -31,18 +31,18 @@ const PaymentPage = ({ username }) => {
         getData()
     }, [])
 
-    useEffect(()=>{
-        if(searchParams.get("paymentdone") == "true"){
-        toast.success('Thanks for the donation!', {
-            position: "top-center",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "colored",
-            transition: Bounce,
+    useEffect(() => {
+        if (searchParams.get("paymentdone") == "true") {
+            toast.success('Thanks for the donation!', {
+                position: "top-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+                transition: Bounce,
             });
         }
         router.push(`/${username}`)
@@ -101,12 +101,25 @@ const PaymentPage = ({ username }) => {
 
             <Script src="https://checkout.razorpay.com/v1/checkout.js"></Script>
 
-            <div className='relative'>
-                <Image className='object-cover shadow-blue-700 shadow-2xl' width={1600} height={400} src={currentUser.coverpic} alt="cover" />
-                <div className='absolute -bottom-12 right-[35%] md:right-[46%] rounded-full border-2 border-white overflow-hidden'>
-                    <Image className='object-cover' width={128} height={128} src={currentUser.profilepic} alt="profile" />
+            <div className='relative w-full h-[400px]'>
+                <Image
+                    className='object-cover shadow-blue-700 shadow-2xl'
+                    src={currentUser.coverpic}
+                    alt="cover"
+                    layout="fill"
+                />
+
+                <div className='absolute -bottom-12 left-1/2 transform -translate-x-1/2 rounded-full border-2 border-white overflow-hidden w-32 h-32'>
+                    <Image
+                        className='object-cover'
+                        src={currentUser.profilepic}
+                        alt="profile"
+                        width={128}
+                        height={128}
+                    />
                 </div>
             </div>
+            
             <div className='info flex flex-col items-center justify-center gap-2 py-20'>
 
                 <div className="font-bold text-xl">
@@ -116,7 +129,7 @@ const PaymentPage = ({ username }) => {
                     <span>Let&apos;s help {username} in his mission!</span>
                 </div>
                 <div className='text-slate-400'>
-                    <span>{Payments.length} Payments • ₹{Payments.reduce((a,b) => a + (b.amount)/100, 0)} raised</span>
+                    <span>{Payments.length} Payments • ₹{Payments.reduce((a, b) => a + (b.amount) / 100, 0)} raised</span>
                 </div>
 
                 <div className="payment flex flex-col md:flex-row gap-3 w-[80%] pt-6">
