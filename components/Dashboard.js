@@ -2,7 +2,7 @@
 import React from 'react'
 import { useSession, signIn, signOut } from "next-auth/react"
 import { useRouter } from 'next/navigation'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { updateProfile, fetchuser } from '@/actions/useractions'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -13,6 +13,13 @@ const Dashboard = () => {
   const router = useRouter()
   const [form, setform] = useState({})
 
+  const getData = useCallback(async () => {
+    if (session?.user?.name) {
+      let u = await fetchuser(session.user.name);
+      setform(u);
+    }
+  }, [session]);
+
   useEffect(() => {
     if (!session) {
       router.push('/login')
@@ -20,12 +27,12 @@ const Dashboard = () => {
     else {
       getData()
     }
-  }, [router, session])
+  }, [router, session, getData])
 
-  const getData = async () => {
-    let u = await fetchuser(session.user.name)
-    setform(u)
-  }
+  // const getData = async () => {
+  //   let u = await fetchuser(session.user.name)
+  //   setform(u)
+  // }
 
   const handleChange = (e) => {
     setform({ ...form, [e.target.name]: e.target.value })

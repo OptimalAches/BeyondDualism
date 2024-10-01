@@ -3,9 +3,7 @@ import React from 'react'
 import Script from 'next/script'
 import Image from 'next/image'
 import { initiate } from '@/actions/useractions'
-import { useState } from 'react'
-import { useSession } from 'next-auth/react'
-import { useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { fetchuser } from '@/actions/useractions'
 import { fetchpayments } from '@/actions/useractions'
 import { ToastContainer, toast } from 'react-toastify';
@@ -15,7 +13,6 @@ import { useSearchParams } from 'next/navigation'
 import { useRouter } from 'next/navigation'
 
 const PaymentPage = ({ username }) => {
-    //const { data: session } = useSession()
 
     const [paymentform, setpaymentform] = useState({})
     const [currentUser, setcurrentUser] = useState({})
@@ -27,9 +24,16 @@ const PaymentPage = ({ username }) => {
         setpaymentform({ ...paymentform, [e.target.name]: e.target.value })
     }
 
+    const getData = useCallback(async () => {
+        let u = await fetchuser(username);
+        setcurrentUser(u);
+        let dbpayments = await fetchpayments(username);
+        setPayments(dbpayments);
+    }, [username]);
+
     useEffect(() => {
         getData()
-    }, [])
+    }, [getData])
 
     useEffect(() => {
         if (searchParams.get("paymentdone") == "true") {
@@ -46,14 +50,14 @@ const PaymentPage = ({ username }) => {
             });
         }
         router.push(`/${username}`)
-    }, [])
+    }, [router, searchParams, username])
 
-    const getData = async (params) => {
-        let u = await fetchuser(username)
-        setcurrentUser(u)
-        let dbpayments = await fetchpayments(username)
-        setPayments(dbpayments)
-    }
+    // const getData = async (params) => {
+    //     let u = await fetchuser(username)
+    //     setcurrentUser(u)
+    //     let dbpayments = await fetchpayments(username)
+    //     setPayments(dbpayments)
+    // }
 
     const pay = async (amount) => {
         // Get the order Id
@@ -119,7 +123,7 @@ const PaymentPage = ({ username }) => {
                     />
                 </div>
             </div>
-            
+
             <div className='info flex flex-col items-center justify-center gap-2 py-20'>
 
                 <div className="font-bold text-xl">
