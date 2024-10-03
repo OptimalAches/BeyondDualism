@@ -1,9 +1,13 @@
 import mongoose from "mongoose";
 
 const connectDb = async () => {
+    const mongoURI = process.env.MONGODB_URI;
     try {
-      const conn = await mongoose.connect(`mongodb://localhost:27017/BeyondDualism`, {
-        //useNewUrlParser: true,
+      // const conn = await mongoose.connect(`mongodb://localhost:27017/BeyondDualism`, {
+      //   useNewUrlParser: true,
+      // });
+      const conn = await mongoose.connect(mongoURI, {
+        useNewUrlParser: true,
       });
       console.log(`MongoDB Connected: ${conn.connection.host}`);
     } catch (error) {
