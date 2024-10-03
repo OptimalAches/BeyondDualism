@@ -9,7 +9,7 @@ const connectDb = async () => {
       // const conn = await mongoose.connect(mongoURI, {
       //   useNewUrlParser: true,
       // });
-      const conn = await mongoose.connect(`mongodb+srv://sachanakshat09:BqgYQ9ss8H3YsFs6@cluster0.vgo8s.mongodb.net/beyonddualism?retryWrites=true&w=majority`, {
+      const conn = await mongoose.connect(`mongodb+srv://sachanakshat09:BqgYQ9ss8H3YsFs6@cluster0.vgo8s.mongodb.net/beyonddualism`, {
         useNewUrlParser: true,
       });
       console.log(`MongoDB Connected: ${conn.connection.host}`);
