@@ -9,9 +9,7 @@ const connectDb = async () => {
     // const conn = await mongoose.connect(mongoURI, {
     //   useNewUrlParser: true,
     // });
-    const conn = await mongoose.connect(`mongodb+srv://sachanakshat09:BqgYQ9ss8H3YsFs6@cluster0.vgo8s.mongodb.net/beyonddualism`, {
-      useUnifiedTopology: true
-    });
+    const conn = await mongoose.connect(`mongodb+srv://sachanakshat09:BqgYQ9ss8H3YsFs6@cluster0.vgo8s.mongodb.net/beyonddualism`)
     console.log(`MongoDB Connected: ${conn.connection.host}`);
   } catch (error) {
     console.error(error.message);
