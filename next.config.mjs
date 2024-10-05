@@ -9,6 +9,7 @@ const nextConfig = {
                 // pathname: '/account123/**',
             },
         ],
+        domains: ['c10.patreonusercontent.com']
     }
 };
 
