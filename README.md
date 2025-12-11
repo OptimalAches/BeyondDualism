@@ -1,7 +1,7 @@
 # 🌐 BeyondDualism — Creator Funding Platform  
 A full-stack web application built using **Next.js**, **MongoDB**, **NextAuth**, and **Razorpay API** that enables creators to register, showcase their work, and receive financial contributions directly from supporters.
 
-BeyondDualism is inspired by platforms like Patreon, but built with a deeper intention — to support philosophical and truth-oriented creators who want to raise funds transparently and independently.
+BeyondDualism is inspired by platforms like Patreon, but built with a deeper intention — to support philosophical and truth-oriented creators who want to raise funds transparently and independently!
 
 ---
 
