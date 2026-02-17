@@ -6,8 +6,8 @@ export default function Home() {
     <>
       <div className="gif flex flex-col gap-3 justify-center items-center text-white h-[44vh] px-5 md:px-0">
         <div className="font-bold text-4xl md:text-5xl flex justify-center items-center gap-2">
-          <div><span>Beyond</span><span className="text-[#63e]">Dualism</span><span>!</span></div>
           <Image width={50} height={50} src="/favicon.png" alt="logo" />
+          <div><span>Beyond</span><span className="text-[#63e]">Dualism</span><span>!</span></div>
         </div>
         <span className="text-center font-bold text-sm md:text-base">A crowdfunding platform for explorers of AdvaitVedanta or Non-dualism</span>
         <div className="text-center text-sm md:text-base font-semibold mt-8">Get funded by individuals who understands the importance of changing the world&apos;s underlying Philosophy</div>

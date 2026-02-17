@@ -55,7 +55,7 @@
 //                 {session && <button type="button" className="text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2" onClick={() => { signOut() }}>Logout</button>}
 
 //                 {!session && <Link href={"/login"}><button type="button" className="text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Login</button></Link>}
-            
+
 //             </div>
 
 //         </nav>
@@ -114,14 +114,14 @@ const Navbar = () => {
         <nav className='bg-black text-white flex justify-between items-center md:h-16 flex-col md:flex-row px-4'>
 
             {/* Logo */}
-            <div className='logo font-bold text-lg flex justify-center items-center gap-2'>
+            <div className='logo font-bold text-lg flex justify-center items-center gap-2 hover:scale-105 transition-transform duration-200 cursor-pointer'>
                 <Link href={'/'}><Image src="/favicon.png" alt="logo" width={35} height={35} /></Link>
                 <Link href={'/'}><div><span>Beyond</span><span className="text-[#63e]">Dualism</span><span>!</span></div></Link>
             </div>
 
             {/* Search Bar - with ref for outside click */}
             <div className='relative' ref={searchRef}>
-                <div className='flex items-center bg-blue-950 rounded-lg'>
+                <div className='flex items-center bg-blue-950 rounded-lg hover:bg-blue-900 hover:ring-2 hover:ring-purple-500 transition-all duration-200'>
                     <input
                         type="text"
                         value={query}
@@ -172,16 +172,16 @@ const Navbar = () => {
                         </svg>
                     </button>
 
-                    <div id="dropdown" className={`z-10 ${showdropdown ? "" : "hidden"} absolute left-[165px] bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700`}>
-                        <ul className="py-2 text-sm text-gray-700 dark:text-gray-200">
+                    <div id="dropdown" className={`z-10 ${showdropdown ? "" : "hidden"} absolute top-12 left-[165px] bg-gradient-to-br from-blue-950 to-purple-900 divide-y divide-purple-700 rounded-lg shadow-xl w-44 border border-purple-600`}>
+                        <ul className="py-2 text-sm text-white">
                             <li>
-                                <Link href="/dashboard" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</Link>
+                                <Link href="/dashboard" className="block px-4 py-2 hover:bg-purple-700 hover:text-white transition-colors duration-200 rounded-md mx-2">Dashboard</Link>
                             </li>
                             <li>
-                                <Link href={`${session.user.name}`} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Your Page</Link>
+                                <Link href={`/${session.user.name}`} className="block px-4 py-2 hover:bg-purple-700 hover:text-white transition-colors duration-200 rounded-md mx-2">Your Page</Link>
                             </li>
                             <li>
-                                <Link onClick={() => { signOut() }} href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Sign out</Link>
+                                <Link onClick={() => { signOut() }} href="#" className="block px-4 py-2 hover:bg-purple-700 hover:text-white transition-colors duration-200 rounded-md mx-2">Sign out</Link>
                             </li>
                         </ul>
                     </div>
@@ -198,7 +198,7 @@ const Navbar = () => {
                 {!session && (
                     <Link href={"/login"}>
                         <button type="button" className="text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">
-                            Login
+                            Log in
                         </button>
                     </Link>
                 )}
