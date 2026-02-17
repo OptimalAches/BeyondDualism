@@ -65,9 +65,8 @@
 // export default Navbar
 
 
-
 "use client"
-import React, { useState } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import { useSession, signOut } from "next-auth/react"
 import Link from 'next/link'
 import Image from 'next/image'
@@ -80,6 +79,19 @@ const Navbar = () => {
     const [query, setquery] = useState("")
     const [suggestions, setsuggestions] = useState([])
     const router = useRouter()
+    const searchRef = useRef(null)
+
+    // ✅ Close search suggestions on outside click
+    useEffect(() => {
+        const handleClickOutside = (e) => {
+            if (searchRef.current && !searchRef.current.contains(e.target)) {
+                setsuggestions([])
+                setquery("")
+            }
+        }
+        document.addEventListener("mousedown", handleClickOutside)
+        return () => document.removeEventListener("mousedown", handleClickOutside)
+    }, [])
 
     const handleSearch = async (e) => {
         const val = e.target.value
@@ -107,8 +119,8 @@ const Navbar = () => {
                 <Link href={'/'}><div><span>Beyond</span><span className="text-[#63e]">Dualism</span><span>!</span></div></Link>
             </div>
 
-            {/* Search Bar - middle */}
-            <div className='relative'>
+            {/* Search Bar - with ref for outside click */}
+            <div className='relative' ref={searchRef}>
                 <div className='flex items-center bg-blue-950 rounded-lg'>
                     <input
                         type="text"
@@ -124,7 +136,6 @@ const Navbar = () => {
                     </span>
                 </div>
 
-                {/* Dropdown */}
                 {suggestions.length > 0 && (
                     <ul className='absolute top-11 left-0 w-full bg-gray-800 rounded-lg shadow-lg z-50 overflow-hidden'>
                         {suggestions.map((user) => (
@@ -146,7 +157,7 @@ const Navbar = () => {
                 )}
             </div>
 
-            {/* Right side - exact same as your original */}
+            {/* Right side - identical to your original */}
             <div className='relative flex flex-col gap-4 md:block'>
                 {session && <>
                     <button

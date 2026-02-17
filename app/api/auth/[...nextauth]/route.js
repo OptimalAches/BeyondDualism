@@ -41,7 +41,8 @@ export const authoptions = NextAuth({
             // const client = await mongoose.connect("mongodb://localhost:27017/BeyondDualism")
             await connectDb()
             // Check if the user already exists in the database
-            const currentUser = await User.findOne({email: email})
+            const currentUser = await User.findOne({email: user.email})
+            //const currentUser = await User.findOne({email: email})
             if(!currentUser){
                 // Create a new user
                 const newUser = await User.create({
