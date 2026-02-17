@@ -70,3 +70,11 @@ export const updateProfile = async (data, oldusername)=>{
         await User.updateOne({email: ndata.email}, ndata)
     }
 }
+
+export const searchuser = async (query) => {
+    await connectDb()
+    let users = await User.find({
+        username: { $regex: query, $options: "i" }
+    }).select("username").lean()
+    return users
+}
