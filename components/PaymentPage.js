@@ -107,8 +107,8 @@ const PaymentPage = ({ username }) => {
 
             <div className='relative w-full h-[400px]'>
                 <Image
-                    className='object-cover shadow-blue-700 shadow-2xl'
-                    src={currentUser.coverpic}
+                    className='object-cover shadow-blue-700 shadow-lg'
+                    src={currentUser.coverpic || "/default-cover.jpg"}
                     alt="cover"
                     layout="fill"
                 />
@@ -116,7 +116,7 @@ const PaymentPage = ({ username }) => {
                 <div className='absolute -bottom-12 left-1/2 transform -translate-x-1/2 rounded-full border-2 border-white overflow-hidden w-32 h-32'>
                     <Image
                         className='object-cover'
-                        src={currentUser.profilepic}
+                        src={currentUser.profilepic || "/default-profile.png"}
                         alt="profile"
                         width={128}
                         height={128}
@@ -130,7 +130,7 @@ const PaymentPage = ({ username }) => {
                     <span>@{username}</span>
                 </div>
                 <div className='text-slate-400'>
-                    <span>Let&apos;s help {username} in his mission!</span>
+                    <span>Let&apos;s help {username} in their mission!</span>
                 </div>
                 <div className='text-slate-400'>
                     <span>{Payments.length} Payments • ₹{Payments.reduce((a, b) => a + (b.amount) / 100, 0)} raised</span>
@@ -154,26 +154,6 @@ const PaymentPage = ({ username }) => {
                                     </li>
                                 )
                             })}
-
-                            {/* <li className='pt-4 flex gap-2 items-center'>
-                                <Image width={30} src="/user.gif" alt="user" />
-                                <span>
-                                    <span>Divyansh donated</span>
-                                    <span className='font-bold px-2 text-green-500'>$30</span>
-                                    <span>with a message</span>
-                                    <span className='font-semibold px-2 text-green-500'>"Lots of &hearts;"</span>
-                                </span>
-                            </li>
-                            <li className='pt-4 flex gap-2 items-center'>
-                                <Image width={30} src="/user.gif" alt="user" />
-                                <span>
-                                    <span>Divyansh donated</span>
-                                    <span className='font-bold px-2 text-green-500'>$30</span>
-                                    <span>with a message</span>
-                                    <span className='font-semibold px-2 text-green-500'>"Lots of &hearts;"</span>
-                                </span>
-                            </li> */}
-
                         </ul>
                     </div>
                     <div className="makePayment w-full md:w-1/2 bg-blue-950 text-white p-10 rounded-lg">
@@ -185,9 +165,9 @@ const PaymentPage = ({ username }) => {
                             <button type="button" className="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center" disabled={(paymentform.name?.length > 1 && paymentform.amount?.length > 1) ? false : true} onClick={() => { pay((paymentform.amount) * 100) }}>Pay</button>
                         </div>
                         <div className="flex gap-2 mt-2">
-                            <button type="button" className="w-full text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center" disabled={(paymentform.name?.length > 1) ? false : true} onClick={() => { pay(1000) }}>Pay ₹10</button>
-                            <button type="button" className="w-full text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center" disabled={(paymentform.name?.length > 1) ? false : true} onClick={() => { pay(2000) }}>Pay ₹20</button>
-                            <button type="button" className="w-full text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center" disabled={(paymentform.name?.length > 1) ? false : true} onClick={() => { pay(3000) }}>Pay ₹30</button>
+                            <button type="button" className="w-full text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center" disabled={(paymentform.name?.length > 1) ? false : true} onClick={() => { pay(10000) }}>Pay ₹100</button>
+                            <button type="button" className="w-full text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center" disabled={(paymentform.name?.length > 1) ? false : true} onClick={() => { pay(20000) }}>Pay ₹200</button>
+                            <button type="button" className="w-full text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center" disabled={(paymentform.name?.length > 1) ? false : true} onClick={() => { pay(30000) }}>Pay ₹300</button>
                         </div>
 
                     </div>

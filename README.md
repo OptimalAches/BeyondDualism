@@ -48,7 +48,7 @@ BeyondDualism is inspired by platforms like Patreon, but built with a deeper int
 - Next.js Server Actions & API Routes
 - MongoDB + Mongoose ORM
 - Razorpay Payment API
-- NextAuth (GitHub Provider)
+- NextAuth (GitHub Provider and Google Provider)
 
 ### **Dev Tools**
 - TypeScript

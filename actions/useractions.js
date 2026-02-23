@@ -42,6 +42,7 @@ export const fetchuser = async (username) => {
     await connectDb()
     let u = await User.findOne({username: username})
     let user = u.toObject({flattenedObjectIds: true})
+    user._id = user._id.toString()
     return user
 }
 
@@ -49,7 +50,10 @@ export const fetchpayments = async (username) => {
     await connectDb()
     // find all payments sorted by decreasing order of amount
     let p = await Payment.find({to_user: username, done: true}).sort({amount: -1}).limit(10).lean()
-    return p
+    return p.map(payment => ({
+        ...payment,
+        _id: payment._id.toString()
+    }))
 }
 
 export const updateProfile = async (data, oldusername)=>{

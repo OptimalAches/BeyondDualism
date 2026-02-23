@@ -39,6 +39,26 @@ const Dashboard = () => {
   }
 
   const handleSubmit = async (e) => {
+    // Basic URL validation
+    const urlPattern = /^https?:\/\/.+\.(jpg|jpeg|png|gif|webp)$/i
+    
+    if(form.profilepic && !urlPattern.test(form.profilepic)){
+        toast.error('Profile picture must be a direct image URL ending in .jpg, .png, etc.', {
+            position: "top-center",
+            autoClose: 5000,
+            theme: "colored",
+        });
+        return
+    }
+    
+    if(form.coverpic && !urlPattern.test(form.coverpic)){
+        toast.error('Cover picture must be a direct image URL ending in .jpg, .png, etc.', {
+            position: "top-center",
+            autoClose: 5000,
+            theme: "colored",
+        });
+        return
+    }
     let a = await updateProfile(e, session.user.name)
     await update()
     toast.success('Profile Updated!', {
@@ -92,11 +112,13 @@ const Dashboard = () => {
           </div>
           <div className="profilepic w-1/3">
             <label htmlFor="profilepic" className='font-semibold text-base mb-1'>Profile Picture</label>
-            <input value={form.profilepic ? form.profilepic : ""} onChange={handleChange} className="w-full text-xs p-2 rounded-lg bg-blue-900" type="text" name="profilepic" id="profilepic" />
+            <p className='text-xs text-slate-400 mb-1'>Direct image URL (right-click image → Copy image address)</p>
+            <input value={form.profilepic ? form.profilepic : ""} onChange={handleChange} className="w-full text-xs p-2 rounded-lg bg-blue-900" type="text" name="profilepic" id="profilepic" placeholder="https://example.com/profile.jpg"/>
           </div>
           <div className="coverpic w-1/3">
             <label htmlFor="coverpic" className='font-semibold text-base mb-1'>Cover Picture</label>
-            <input value={form.coverpic ? form.coverpic : ""} onChange={handleChange} className="w-full text-xs p-2 rounded-lg bg-blue-900" type="text" name="coverpic" id="coverpic" />
+            <p className='text-xs text-slate-400 mb-1'>Direct image URL (right-click image → Copy image address)</p>
+            <input value={form.coverpic ? form.coverpic : ""} onChange={handleChange} className="w-full text-xs p-2 rounded-lg bg-blue-900" type="text" name="coverpic" id="coverpic" placeholder="https://example.com/cover.jpg"/>
           </div>
           <div className="razorpayid w-1/3">
             <label htmlFor="razorpayid" className='font-semibold text-base mb-1'>Razorpay ID</label>
